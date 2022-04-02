@@ -1,6 +1,7 @@
 package com.hh99.delivery.model;
 
 import com.hh99.delivery.dto.RestaurantRequestDto;
+import com.hh99.delivery.validator.RestaurantValidator;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,14 +20,18 @@ public class Restaurant {
     private String name;
 
     @Column(nullable = false)
-    private Long minOrderPrice;
+    private int minOrderPrice;
 
     @Column(nullable = false)
-    private Long deliveryFee;
+    private int deliveryFee;
 
-    public Restaurant(RestaurantRequestDto restaurantRequestDto) {
-        this.name = restaurantRequestDto.getName();
-        this.minOrderPrice = restaurantRequestDto.getMinOrderPrice();
-        this.deliveryFee = restaurantRequestDto.getDeliveryFee();
+    // 음식점 등록 시 사용
+    public Restaurant(RestaurantRequestDto requestDto) {
+        // 입력값 유효성 검사(Validation)
+        RestaurantValidator.validateRestaurantInput(requestDto);
+
+        this.name = requestDto.getName();
+        this.minOrderPrice = requestDto.getMinOrderPrice();
+        this.deliveryFee = requestDto.getDeliveryFee();
     }
 }

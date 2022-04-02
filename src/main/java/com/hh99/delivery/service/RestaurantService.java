@@ -15,13 +15,12 @@ public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
 
     @Transactional
-    public Restaurant registerRestaurant(RestaurantRequestDto restaurantRequestDto) {
-        Restaurant restaurant = new Restaurant(restaurantRequestDto);
+    public Restaurant registerRestaurant(RestaurantRequestDto requestDto) {
+        Restaurant restaurant = new Restaurant(requestDto);
         restaurantRepository.save(restaurant);
         return restaurant;
     }
 
-    @Transactional
     public List<Restaurant> getAllRestaurants() {
         return restaurantRepository.findAll();
     }

@@ -1,12 +1,12 @@
 package com.hh99.delivery.dto;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Getter
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class RestaurantRequestDto {
     private String name;
-    private Long minOrderPrice;
-    private Long deliveryFee;
+    private int minOrderPrice;
+    private int deliveryFee;
 }
