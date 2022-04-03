@@ -1,6 +1,5 @@
 package com.hh99.delivery.model;
 
-import com.hh99.delivery.dto.FoodRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,9 +23,9 @@ public class Food {
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)
     private Restaurant restaurant;
 
-    public Food(FoodRequestDto requestDto) {
-        this.name =requestDto.getName();
-        this.price =requestDto.getPrice();
-        this.restaurant =requestDto.getRestaurant();
+    public Food(String name, int price, Restaurant restaurant){
+        this.name = name;
+        this.price = price;
+        this.restaurant = restaurant;
     }
 }
