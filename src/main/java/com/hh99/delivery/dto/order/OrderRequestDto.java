@@ -8,6 +8,6 @@ import java.util.List;
 @Getter
 @RequiredArgsConstructor
 public class OrderRequestDto {
-    private Long restaurnatId;
-    private List<FoodOrderRequestDto> foods;
+    private final Long restaurantId;
+    private final List<OrderItemRequestDto> foods;
 }

@@ -1,7 +1,7 @@
 package com.hh99.delivery.controller;
 
 import com.hh99.delivery.dto.order.OrderRequestDto;
-import com.hh99.delivery.model.Orders;
+import com.hh99.delivery.dto.order.OrderResponseDto;
 import com.hh99.delivery.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,13 +19,13 @@ public class OrderController {
 
     // 주문하기
     @PostMapping("/order/request")
-    public Orders registerNerOrder(@RequestBody OrderRequestDto requestDto) {
+    public OrderResponseDto registerNewOrder(@RequestBody OrderRequestDto requestDto){
         return orderService.registerNewOrder(requestDto);
     }
 
     // 주문 조회하기
     @GetMapping("/orders")
-    public List<Orders> getOrders() {
+    public List<OrderResponseDto> getOrders(){
         return orderService.getOrders();
     }
 }

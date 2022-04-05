@@ -1,6 +1,5 @@
 package com.hh99.delivery.dto.order;
 
-import com.hh99.delivery.model.FoodOrder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -10,7 +9,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderResponseDto {
     private String restaurantName;
+    private List<OrderResponseFoodsDto> foods;
     private int deliveryFee;
     private int totalPrice;
-    private List<FoodOrder> foods;
+
+    public OrderResponseDto(String restaurantName, List<OrderResponseFoodsDto> foods, int deliveryFee, int totalPrice) {
+        this.restaurantName = restaurantName;
+        this.foods = foods;
+        this.deliveryFee = deliveryFee;
+        this.totalPrice = totalPrice;
+    }
 }
