@@ -82,4 +82,9 @@ public class OrderService {
         orders.addFoodOrderList(foodOrderList);
         return orderRepository.save(orders);
     }
+
+    // 주문 조회하기
+    public List<Orders> getOrders() {
+        return orderRepository.findAll();
+    }
 }

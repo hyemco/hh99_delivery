@@ -4,9 +4,12 @@ import com.hh99.delivery.dto.order.OrderRequestDto;
 import com.hh99.delivery.model.Orders;
 import com.hh99.delivery.service.OrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,4 +24,8 @@ public class OrderController {
     }
 
     // 주문 조회하기
+    @GetMapping("/orders")
+    public List<Orders> getOrders() {
+        return orderService.getOrders();
+    }
 }
