@@ -3,6 +3,7 @@ package com.hh99.delivery.service;
 import com.hh99.delivery.dto.order.*;
 import com.hh99.delivery.model.*;
 import com.hh99.delivery.repository.*;
+import com.hh99.delivery.validator.OrderValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +51,9 @@ public class OrderService {
             foods.add(eachFoodResponse);
             totalPrice += price;
         }
+
+        // 최소 주문 가격 유효성 검사
+        OrderValidator.validateOrderPrice(minOrderPrice, totalPrice);
 
         totalPrice += deliveryFee;
         return new OrderResponseDto(restaurantName, foods, deliveryFee, totalPrice);

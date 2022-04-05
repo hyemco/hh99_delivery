@@ -3,6 +3,7 @@ package com.hh99.delivery.controller;
 import com.hh99.delivery.dto.order.OrderRequestDto;
 import com.hh99.delivery.dto.order.OrderResponseDto;
 import com.hh99.delivery.service.OrderService;
+import com.hh99.delivery.validator.OrderValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,8 @@ public class OrderController {
     // 주문하기
     @PostMapping("/order/request")
     public OrderResponseDto registerNewOrder(@RequestBody OrderRequestDto requestDto){
+        // 주문 수량 유효성 검사
+        OrderValidator.validateOrderInput(requestDto);
         return orderService.registerNewOrder(requestDto);
     }
 
