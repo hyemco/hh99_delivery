@@ -82,3 +82,6 @@
     - 그동안 성공한 모든 주문 요청을 조회 가능
 </div>
 </details>
+
+# DB 설계
+<img src="https://user-images.githubusercontent.com/98294357/162191428-890ab6fa-3213-4517-84c1-2391eafd179a.png" width=500px>
